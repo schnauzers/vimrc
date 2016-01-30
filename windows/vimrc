@@ -54,6 +54,14 @@ set guifont=Consolas:h14:cANSI
 "1.50 去掉vim的GUI版本中的toolbar
 "set guioptions=T
 
+"1.60 默认不备份文件
+"windows平台需要在_gvimrc文件里设置不备份
+"if has("vms")
+"set nobackup "do not keep a backup file, use versions instead
+"else
+"set backup "keep a backup file
+"endif  
+
 "2.下面是通用选项的配置
 "2.10 去掉有关vi一致性模式，避免以前版本的一些bug和局限
 set nocompatible
@@ -89,9 +97,4 @@ set ruler
 "b开头的单词，当输入到/bo时，会自动找到第一个bo开头的单词，依次类推
 set incsearch
 
-"2.110 默认不备份文件
-if has("vms")
-set nobackup "do not keep a backup file, use versions instead
-"else
-"set backup "keep a backup file
-endif  
+

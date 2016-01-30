@@ -1,0 +1,2 @@
+"windows上的取消备份需要在_gvimrc文件里设置
+set nobackup
