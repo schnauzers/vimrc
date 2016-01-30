@@ -104,4 +104,5 @@ set ruler
 "b开头的单词，当输入到/bo时，会自动找到第一个bo开头的单词，依次类推
 set incsearch
 
-
+"2.110 匹配时忽略大小写
+set ignorecase
