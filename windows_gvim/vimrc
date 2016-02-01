@@ -107,3 +107,5 @@ set incsearch
 "2.110 匹配时忽略大小写
 set ignorecase
 
+"2.120 代码折叠
+set foldmethod=marker

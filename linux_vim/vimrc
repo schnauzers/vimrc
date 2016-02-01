@@ -62,12 +62,7 @@ source $VIMRUNTIME/menu.vim
 "set guioptions=T
 
 "1.60 默认不备份文件
-"windows平台需要在_gvimrc文件里设置不备份
-"if has("vms")
-"set nobackup "do not keep a backup file, use versions instead
-"else
-"set backup "keep a backup file
-"endif  
+set nobackup "do not keep a backup file, use versions instead
 
 "2.下面是通用选项的配置
 "2.10 去掉有关vi一致性模式，避免以前版本的一些bug和局限
@@ -106,3 +101,7 @@ set incsearch
 
 "2.110 匹配时忽略大小写
 set ignorecase
+
+"2.120 代码折叠
+set foldmethod=syntax
+
