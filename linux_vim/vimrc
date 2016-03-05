@@ -78,6 +78,26 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1         
 "设置窗体宽度
 let Tlist_WinWidth = 21"
+
+Plugin 'bling/vim-airline'
+let g:airline_theme="molokai" 
+"这个是安装字体后 必须设置此项" 
+let g:airline_powerline_fonts = 1   
+
+"打开tabline功能,方便查看Buffer和切换,省去了minibufexpl插件
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+" 关闭状态显示空白符号计数
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#symbol = '!'
+" old vim-powerline symbols
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+"let g:airline_symbols.branch = '⭠'
+"let g:airline_symbols.readonly = '⭤'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -208,7 +228,10 @@ set ruler
 
 " 高亮显示当前行/列
 set cursorline
+hi CursorLine   cterm=underline ctermbg=white ctermfg=blue guibg=white guifg=blue
+
 set cursorcolumn
+hi CursorColumn cterm=NONE ctermbg=white ctermfg=white guibg=darkred guifg=white
 
 " 高亮显示搜索结果
 set hlsearch
