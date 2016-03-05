@@ -1,6 +1,7 @@
 ﻿set nocompatible
 filetype off
 
+       
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -80,9 +81,18 @@ let Tlist_Use_Right_Window = 1
 let Tlist_WinWidth = 21"
 
 Plugin 'bling/vim-airline'
-let g:airline_theme="molokai" 
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_theme="bubblegum" 
 "这个是安装字体后 必须设置此项" 
 let g:airline_powerline_fonts = 1   
+
+"设置为双字宽显示，否则无法完整显示如:☆
+set ambiwidth=double
+
+"set guifont=Consolas\ for\ Powerline\ FixedD:h11
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+        endif
 
 "打开tabline功能,方便查看Buffer和切换,省去了minibufexpl插件
 let g:airline#extensions#tabline#enabled = 1
@@ -95,8 +105,8 @@ let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
 let g:airline_right_sep = '⮂'
 let g:airline_right_alt_sep = '⮃'
-"let g:airline_symbols.branch = '⭠'
-"let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -148,10 +158,10 @@ endfunction
 
 "1.下面是平台相关的配置
 "1.10 设置背景色
-set background=dark
+"set background=dark
 
 "1.20 选择配色方案
-colorscheme solarized
+"colorscheme solarized
 
 "1.30 设置字体，注意，linux下用斜杠\，windows下用冒号:,字体:字号:编码方式
 set guifont=Consolas:h14:cANSI
@@ -182,7 +192,6 @@ set nobackup "do not keep a backup file, use versions instead
 "2.下面是通用选项的配置
 "2.10 去掉有关vi一致性模式，避免以前版本的一些bug和局限
 set nocompatible
-
 "2.20 显示行号
 set nu
 
@@ -228,13 +237,14 @@ set ruler
 
 " 高亮显示当前行/列
 set cursorline
-hi CursorLine   cterm=underline ctermbg=white ctermfg=blue guibg=white guifg=blue
+hi CursorLine   cterm=underline ctermbg=black
 
 set cursorcolumn
-hi CursorColumn cterm=NONE ctermbg=white ctermfg=white guibg=darkred guifg=white
+hi CursorColumn cterm=none ctermbg=black 
 
 " 高亮显示搜索结果
 set hlsearch
 
 " 开启语法高亮功能
 syntax enable
+set t_Co=256
