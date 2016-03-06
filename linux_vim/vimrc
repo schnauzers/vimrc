@@ -67,8 +67,9 @@ let NERDTreeWinPos='left'
 let NERDTreeWinSize=21
 "let NERDTreeShowBookmarks=1
 "let NERDTreeShowLineNumbers=1
-map <F1> :NERDTreeToggle<CR>
+"map <F1> :NERDTreeToggle<CR>
 " autocmd VimEnter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 
 Plugin 'taglist.vim'
 "不同时显示多个文件的tag，只显示当前文件的。 
