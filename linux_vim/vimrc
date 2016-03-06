@@ -132,6 +132,16 @@ Plugin 'Raimondi/delimitMate'
 "批量注释
 Plugin 'scrooloose/nerdcommenter'
 
+Plugin 'https://github.com/scrooloose/syntastic'
+let g:syntastic_python_python_exec = '/root/.pyenv/versions/3.5.1/bin/python3'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -264,7 +274,7 @@ set cursorline
 hi CursorLine   cterm=underline ctermbg=black
 
 set cursorcolumn
-hi CursorColumn cterm=none ctermbg=black 
+hi CursorColumn cterm=none ctermbg=black
 
 "highlight Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
 highlight Pmenu ctermfg=86 ctermbg=8 guifg=#ffffff guibg=#000000
@@ -275,3 +285,26 @@ set hlsearch
 " 开启语法高亮功能
 syntax enable
 set t_Co=256
+let python_highlight_all = 1
+
+"PEP8风格
+au BufNewFile,BufRead *.py
+\ set tabstop=4 |
+\ set softtabstop=4 |
+\ set shiftwidth=4 |
+\ set textwidth=79 |
+\ set expandtab |
+\ set autoindent |
+\ set fileformat=unix |
+
+"js,html,css style:
+au BufNewFile,BufRead *.js,*.html,*.css
+\ set tabstop=2 |
+\ set softtabstop=2 |
+\ set shiftwidth=2 |
+
+"显示行尾空格
+highlight WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+$/
+"制表符和空格的显示方式
+set listchars=tab:>-,trail:-
