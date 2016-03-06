@@ -1,6 +1,6 @@
 ﻿set nocompatible
 filetype off
-
+let mapleader = ";"
        
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -107,6 +107,29 @@ let g:airline_right_sep = '⮂'
 let g:airline_right_alt_sep = '⮃'
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
+
+Plugin 'winmanager'
+let g:NERDTree_title="[NERDTree]"  
+let g:winManagerWindowLayout="NERDTree|TagList"  
+  
+function! NERDTree_Start()  
+    exec 'NERDTree'  
+endfunction  
+	  
+function! NERDTree_IsValid()  
+    return 1  
+endfunction  
+		  
+nmap wm :WMToggle<CR> 
+
+Plugin 'kien/rainbow_parentheses.vim'
+
+"Plugin 'nathanaelkane/vim-indent-guides'
+"自动添加括号
+Plugin 'Raimondi/delimitMate'
+
+"批量注释
+Plugin 'scrooloose/nerdcommenter'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -241,6 +264,9 @@ hi CursorLine   cterm=underline ctermbg=black
 
 set cursorcolumn
 hi CursorColumn cterm=none ctermbg=black 
+
+"highlight Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
+highlight Pmenu ctermfg=86 ctermbg=8 guifg=#ffffff guibg=#000000
 
 " 高亮显示搜索结果
 set hlsearch
