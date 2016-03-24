@@ -1,7 +1,7 @@
 ﻿set nocompatible
 filetype off
 let mapleader = ";"
-       
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -32,35 +32,34 @@ Plugin 'VundleVim/Vundle.vim'
 " 自动补全神器
 Plugin 'Valloric/YouCompleteMe'
 let g:ycm_python_binary_path = '/root/.pyenv/versions/3.5.1/bin/python3'
-"设置error和warning的提示符，如果没有设置，ycm会以syntastic的  
-"" g:syntastic_warning_symbol 和 g:syntastic_error_symbol 这两个为准  
-let g:ycm_error_symbol='>>'  
-let g:ycm_warning_symbol='>*' 
-
-"设置跳转的快捷键，可以跳转到definition和declaration  
-"nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>  
-"nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>  
-"nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>  
+"let g:ycm_python_binary_path = '/usr/bin/python'
+"设置error和warning的提示符，如果没有设置，ycm会以syntastic的
+"" g:syntastic_warning_symbol 和 g:syntastic_error_symbol 这两个为准
+let g:ycm_error_symbol='>>'
+let g:ycm_warning_symbol='>*'
+"设置跳转的快捷键，可以跳转到definition和declaration
+"nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>
+"nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+"nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 ""nmap <F4> :YcmDiags<CR>
-
-"设置全局配置文件的路径  
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'  
-"开启基于tag的补全，可以在这之后添加需要的标签路径  
-let g:ycm_collect_identifiers_from_tags_files = 1  
-"开启语义补全  
-let g:ycm_seed_identifiers_with_syntax = 1  
-"在接受补全后不分裂出一个窗口显示接受的项  
-set completeopt-=preview  
-"不显示开启vim时检查ycm_extra_conf文件的信息  
-"let g:ycm_confirm_extra_conf=0  
-""每次重新生成匹配项，禁止缓存匹配项  
-let g:ycm_cache_omnifunc=0  
-"在注释中也可以补全  
-let g:ycm_complete_in_comments=1  
-"输入第一个字符就开始补全  
-let g:ycm_min_num_of_chars_for_completion=1  
-"不查询ultisnips提供的代码模板补全，如果需要，设置成1即可  
-"let g:ycm_use_ultisnips_completer=0
+"设置全局配置文件的路径
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+"开启基于tag的补全，可以在这之后添加需要的标签路径
+let g:ycm_collect_identifiers_from_tags_files = 1
+"开启语义补全
+let g:ycm_seed_identifiers_with_syntax = 1
+"在接受补全后不分裂出一个窗口显示接受的项
+set completeopt-=preview
+"不显示开启vim时检查ycm_extra_conf文件的信息
+let g:ycm_confirm_extra_conf=0
+""每次重新生成匹配项，禁止缓存匹配项
+let g:ycm_cache_omnifunc=0
+"在注释中也可以补全
+let g:ycm_complete_in_comments=1
+"输入第一个字符就开始补全
+let g:ycm_min_num_of_chars_for_completion=1
+"不查询ultisnips提供的代码模板补全，如果需要，设置成1即可
+let g:ycm_use_ultisnips_completer=0
 
 Plugin 'scrooloose/nerdtree'
 let NERDTreeWinPos='left'
@@ -110,18 +109,18 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 
 Plugin 'winmanager'
-let g:NERDTree_title="[NERDTree]"  
-let g:winManagerWindowLayout="NERDTree|TagList"  
-  
-function! NERDTree_Start()  
-    exec 'NERDTree'  
-endfunction  
-	  
-function! NERDTree_IsValid()  
-    return 1  
-endfunction  
-		  
-nmap wm :WMToggle<CR> 
+let g:NERDTree_title="[NERDTree]"
+let g:winManagerWindowLayout="NERDTree|TagList"
+
+function! NERDTree_Start()
+    exec 'NERDTree'
+endfunction
+
+function! NERDTree_IsValid()
+    return 1
+endfunction
+
+nmap wm :WMToggle<CR>
 
 Plugin 'kien/rainbow_parentheses.vim'
 
@@ -134,6 +133,7 @@ Plugin 'scrooloose/nerdcommenter'
 
 Plugin 'https://github.com/scrooloose/syntastic'
 let g:syntastic_python_python_exec = '/root/.pyenv/versions/3.5.1/bin/python3'
+"let g:syntastic_python_python_exec = '/usr/bin/python'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -141,6 +141,19 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+"对齐
+"Plugin 'nathanaelkane/vim-indent-guides'
+"let g:indent_guides_auto_colors = 0
+"hi IndentGuidesOdd  guibg=red   ctermbg=3
+"hi IndentGuidesEven guibg=green ctermbg=4
+"let g:indent_guides_enable_on_vim_startup = 1
+
+"对齐
+Plugin 'Yggdroot/indentLine'
+let g:indentLine_enabled = 1
+let g:indentLine_color_term = 239
+"let g:indentLine_char = '┆'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -271,7 +284,7 @@ set ruler
 
 " 高亮显示当前行/列
 set cursorline
-hi CursorLine   cterm=underline ctermbg=black
+hi CursorLine   cterm=none ctermbg=black
 
 set cursorcolumn
 hi CursorColumn cterm=none ctermbg=black
